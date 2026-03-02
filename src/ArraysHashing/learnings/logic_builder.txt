@@ -30,3 +30,9 @@
 
    7.char[] freq = new char[26];
      new String(freqKey); // internally it creates unique values like \u0002 \u0004  0  0  \u0001
+
+   8.   Set<Character>[] rowSet = new Set[9];
+        Set<Character>[] colSet = new Set[9];
+        Set<Character>[] boxSet = new Set[9];  can be replaced by boolean[] row then row[i][num]=true;
+
+   9. 
