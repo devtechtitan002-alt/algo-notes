@@ -11,7 +11,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
            for(int right=0;right<s.length();right++){
             char ch = s.charAt(right);
             while(  freqMap.containsKey(ch) /*freqArr[(int)ch]>0 */   /*set.contains(s.charAt(right))*/ ){
-                left=freqMap.get(ch)+1;//freqArr[(int)s.charAt(left)]--;//set.remove(s.charAt(left++));
+                left=Math.max(left,freqMap.get(ch)+1);//freqArr[(int)s.charAt(left)]--;//set.remove(s.charAt(left++));
                 //left++;
             }
             freqMap.put(ch,right);//freqArr[(int)ch]++;//set.add(ch);

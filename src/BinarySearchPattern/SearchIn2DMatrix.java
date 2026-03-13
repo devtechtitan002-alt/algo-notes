@@ -38,31 +38,31 @@ public class SearchIn2DMatrix {
         return result!=-1;
         /*
         int rows = matrix.length;
-int cols = matrix[0].length;
+        int cols = matrix[0].length;
 
-int left = 0;
-int right = rows * cols - 1;
+        int left = 0;
+        int right = rows * cols - 1;
 
-while(left <= right){
+        while(left <= right){
 
-    int mid = left + (right-left)/2;
+        int mid = left + (right-left)/2;
 
-    int row = mid / cols;
-    int col = mid % cols;
+        int row = mid / cols;
+        int col = mid % cols;
 
-    int val = matrix[row][col];
+        int val = matrix[row][col];
 
-    if(val == target) return true;
+        if(val == target) return true;
 
-    else if(val < target)
-        left = mid + 1;
+        else if(val < target)
+           left = mid + 1;
 
-    else
-        right = mid - 1;
-}
+        else
+           right = mid - 1;
+        }
 
-return false;
- */
+        return false;
+        */
     }
     public static void main(String[] args){
         Solution sol = new Solution();

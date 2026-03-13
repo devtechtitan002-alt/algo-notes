@@ -25,7 +25,7 @@ for(char c : s1.toCharArray()) s1Freq[c-'a']++;
 
 // Count initial matches
 for(int i = 0; i < 26; i++)
-    if(s1Freq[i] == winFreq[i]) matches++;
+    if(s1Freq[i] == winFreq[i]) matches++;  // how many distinct characters are there in s1 = 26-matches // except characters in s1 all are set to 0 so 
 
 for(int right = 0; right < s2.length(); right++){
     char rc = s2.charAt(right);
