@@ -1,8 +1,8 @@
 import java.util.Arrays;
 public class FindFirstandLastPositionofElementinSortedArray {
     static class Solution {
-<<<<<<< HEAD
-    public int[] searchRange(int[] nums, int target) {
+    /*
+        public int[] searchRange(int[] nums, int target) {
         int[] result = {-1,-1};
         int left=0,right=nums.length-1;
         while(left<=right){
@@ -19,7 +19,7 @@ public class FindFirstandLastPositionofElementinSortedArray {
         }
         return result;
     }
-=======
+    */
     public int binarySearchForEndPos(int[] nums,int target){
         int left=0,right=nums.length-1;
         while(left<right){
@@ -91,18 +91,14 @@ public int findLast(int[] nums, int target){
 public int[] searchRange(int[] nums, int target) {
     return new int[]{findFirst(nums,target), findLast(nums,target)};
 } */
->>>>>>> f38c7ac (Leetcode-34-FindFirstandLastPositionofElementinSortedArray)
     }
     public static void main(String[] args){
         Solution sol = new Solution();
         System.out.println(Arrays.toString(sol.searchRange(new int[]{5,7,7,8,8,10},8)));
         System.out.println(Arrays.toString(sol.searchRange(new int[]{5,7,7,8,8,10},6)));
-<<<<<<< HEAD
         System.out.println(Arrays.toString(sol.searchRange(new int[]{},0)));
-=======
         System.out.println(Arrays.toString(sol.searchRange(new int[]{8,8},8)));
         System.out.println(Arrays.toString(sol.searchRange(new int[]{0},0)));
         System.out.println(Arrays.toString(sol.searchRange(new int[]{2,2},1)));
->>>>>>> f38c7ac (Leetcode-34-FindFirstandLastPositionofElementinSortedArray)
     }
 }
