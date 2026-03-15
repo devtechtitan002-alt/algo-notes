@@ -28,35 +28,38 @@ public class RemoveKDigits {
         }
 
         return sb.isEmpty() ? "0" : sb.toString();
-
+     
         /*
-        char[] stack = new char[num.length()];
-int top = -1;
+        int n = num.length();
+    
+    if (k >= n) return "0";
 
-for(char ch : num.toCharArray()){
-    while(top >= 0 && ch < stack[top] && times > 0){
-        top--;
-        times--;
+    char[] stack = new char[n];
+    int top = -1;
+
+    for (char ch : num.toCharArray()) {
+
+        while (top >= 0 && stack[top] > ch && k > 0) {
+            top--;
+            k--;
+        }
+
+        stack[++top] = ch;
     }
-    stack[++top] = ch;
-}
 
-// remove remaining k from end
-top = top - times;
+    // remove remaining digits from end
+    top -= k;
 
-// build result
-StringBuilder sb = new StringBuilder();
-for(int i = 0; i <= top; i++){
-    sb.append(stack[i]);
-}
+    // skip leading zeros
+    int start = 0;
+    while (start <= top && stack[start] == '0') {
+        start++;
+    }
 
-// strip leading zeros
-while(sb.length() > 1 && sb.charAt(0) == '0'){
-    sb.deleteCharAt(0);
-}
+    if (start > top) return "0";
 
-return sb.isEmpty() ? "0" : sb.toString();
- */
+    return new String(stack, start, top - start + 1);
+     */
     }
     }
     public static void main(String[] args){

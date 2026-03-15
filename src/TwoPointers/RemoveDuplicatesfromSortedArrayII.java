@@ -13,6 +13,15 @@ public class RemoveDuplicatesfromSortedArrayII {
             }
         }
         return left+1;
+        /*
+        int write = 0;
+        for(int read = 0; read < nums.length; read++){
+           if(write < 2 || nums[read] != nums[write-2]){
+              nums[write++] = nums[read];
+            }
+        }
+        return write;
+         */
     }
     }
     public static void main(String[] args){

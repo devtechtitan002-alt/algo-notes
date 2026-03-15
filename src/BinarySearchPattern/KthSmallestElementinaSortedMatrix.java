@@ -1,19 +1,19 @@
 import java.util.Arrays;
 public class KthSmallestElementinaSortedMatrix {
     static class Solution {
-    public int getRank(int[][] matrix,int target){
-        int count=0;
-        int row=matrix.length,col=matrix[0].length;
-        for(int cols=0;cols<col;cols--){
-            for(int rows=row-1;rows>=0;rows--){
-                if(matrix[rows][cols]<=target){
-                    count += row;
-                    break;
-                }
-            }
+    public int getRank(int[][] matrix, int target){
+    int count = 0;
+    int row = matrix.length-1, col = 0;
+    while(row >= 0 && col < matrix[0].length){
+        if(matrix[row][col] <= target){
+            count += row+1;  // entire column above included
+            col++;           // move right
+        } else {
+            row--;           // move up
         }
-        return count;
     }
+    return count;
+}
     public int kthSmallest(int[][] matrix, int k) {
         /*
         int res=0;
@@ -26,23 +26,15 @@ public class KthSmallestElementinaSortedMatrix {
         Arrays.sort(result);
         return result[k-1];
         */
-        int row=matrix.length,col=matrix[0].length;
-        int[] left = {0,0};
-        int[] right = {row-1,col-1};
-        while(left[0]<=right[0] && left[1]<=right[1]){
-            int midLeft=(left[0]+right[0])/2;
-            int midRight=(left[1]+right[1])/2;
-            int mid = matrix[midLeft][midRight];
-            int rankOfMid = getRank(matrix,mid);
-            if(rankOfMid < mid ){
-                left[0]=midLeft+1;
-                left[1]=midRight+1;
-            }else{
-                right[0]=midRight-1;
-                right[1]=midRight-1;
-            }
-        }
-        return matrix[left[0]][right[1]];
+         int n = matrix.length;
+    int lo = matrix[0][0];
+    int hi = matrix[n-1][n-1];
+    while(lo < hi){
+        int mid = lo + (hi-lo)/2;
+        if(getRank(matrix, mid) < k) lo = mid+1;
+        else hi = mid;
+    }
+    return lo;
     }
     }
     public static void main(String[] args){

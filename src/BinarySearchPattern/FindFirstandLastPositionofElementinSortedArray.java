@@ -1,25 +1,6 @@
 import java.util.Arrays;
 public class FindFirstandLastPositionofElementinSortedArray {
     static class Solution {
-    /*
-        public int[] searchRange(int[] nums, int target) {
-        int[] result = {-1,-1};
-        int left=0,right=nums.length-1;
-        while(left<=right){
-            int mid = left + (right-left)/2 ;
-            if(nums[mid]==target){
-                if(result[0]==-1){ result[0] = mid; }
-                if(result[1]==-1 && result[0]!=-1 && result[0]>=mid){ result[1] = mid;}
-            }
-            if(nums[mid]<target){
-                left = mid+1;
-            }else{
-                right = mid-1;
-            }
-        }
-        return result;
-    }
-    */
     public int binarySearchForEndPos(int[] nums,int target){
         int left=0,right=nums.length-1;
         while(left<right){
