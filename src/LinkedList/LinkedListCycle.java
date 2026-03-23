@@ -1,8 +1,16 @@
 public class LinkedListCycle {
     static public class Solution {
+    /*
+    public boolean hasCycle(ListNode tortoise,ListNode hare){
+        if(hare==null || hare.next==null) return false;
+        if(tortoise == hare) return true;
+        return hasCycle(tortoise.next,hare.next.next);
+    }
+     */
     public boolean hasCycle(ListNode head) {
         ListNode slow=head;
         ListNode fast=head;
+        //return hasCycle(slow,fast);
         while(fast!=null && fast.next!=null){
             slow = slow.next;
             fast =  fast.next.next;

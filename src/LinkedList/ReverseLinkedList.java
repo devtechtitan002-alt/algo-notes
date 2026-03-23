@@ -13,19 +13,17 @@ public class ReverseLinkedList {
         return prev;
     }
     */
-   public ListNode reverse(ListNode prev,ListNode curr){
-      if(curr.next==null){
-         return curr;
+
+    public ListNode reverse(ListNode prev,ListNode curr){
+      if(curr==null){
+         return prev;
       }
-      ListNode next=curr.next;
-      curr.next=prev;
-      prev=curr;
-      curr=next;
-      return reverse(prev,next);
-   }
-   public ListNode reverseList(ListNode head) {
+      curr.next = prev;
+      return reverse(curr,curr.next);
+    }
+    public ListNode reverseList(ListNode head) {
         ListNode prev=null;
-        ListNode curr=head;
+        ListNode curr = head;
         return reverse(prev,curr);
     }
     }
