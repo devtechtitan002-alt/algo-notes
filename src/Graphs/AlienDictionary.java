@@ -15,7 +15,7 @@ public class AlienDictionary {
             if (visiting.contains(ch)) return false; // cycle ❌
             if (visited.contains(ch)) return true;   // already processed ✔
 
-            visiting.add(ch);
+            visiting.add(ch);cha
 
             if (map.containsKey(ch)) {
                 for (char next : map.get(ch)) {

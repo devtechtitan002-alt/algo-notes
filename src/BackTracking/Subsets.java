@@ -23,7 +23,7 @@ public class Subsets {
 
     public static void main(String[] args){
         Solution sol = new Solution();
-        for(List<Integer> list : sol.subsets(new int[]{1,1,2})){
+        for(List<Integer> list : sol.subsets(new int[]{1,2,3})){
             System.out.println(list);
         }
     }
