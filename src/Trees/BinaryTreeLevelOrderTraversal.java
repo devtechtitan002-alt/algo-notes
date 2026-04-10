@@ -35,11 +35,11 @@ public class BinaryTreeLevelOrderTraversal {
     void dfs(TreeNode node, int level, List<Integer> result){
         if(node == null) return;
 
-        if (level == res.size()) {
-          res.add(new ArrayList<>());
+        if (level == result.size()) {
+          result.add(new ArrayList<>());
         }
 
-        res.get(level).add(node.val);
+        result.get(level).add(node.val);
 
         dfs(node.right, level + 1, result);
         dfs(node.left, level + 1, result);

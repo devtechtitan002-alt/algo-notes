@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.Queue;
 import java.util.LinkedList;
@@ -22,26 +23,27 @@ public class CloneGraph {
 }
     class Solution {
     public Node cloneGraph(Node node) {
-        if(node == null || node.neighbors == null) return null;
-        HashMap<Integer,Node> map = new HashMap<>();
-        Queue<Node> q = new LinkedList<>();
-        q.add(node);
-        Node head = new Node(node.val);
-        map.put(node.val,head);
-        while(!q.isEmpty()){
+    if (node == null) return null;
 
-            Node curr = q.poll();
+    Map<Node, Node> map = new HashMap<>();
+    Queue<Node> q = new LinkedList<>();
 
-            for(Node neighbors : curr.neighbors){
-                if(!map.containsKey(neighbors.val)) {
-                   q.add(neighbors);
-                   map.put(neighbors.val,new Node(neighbors.val));
-                }
-                map.get(curr.val).neighbors.add(map.get(neighbors.val));
+    q.offer(node);
+    map.put(node, new Node(node.val));
+
+    while (!q.isEmpty()) {
+        Node curr = q.poll();
+
+        for (Node nei : curr.neighbors) {
+            if (!map.containsKey(nei)) {
+                map.put(nei, new Node(nei.val));
+                q.offer(nei);
             }
-
+            map.get(curr).neighbors.add(map.get(nei));
         }
-        return head;
     }
+
+    return map.get(node);
+}
 }
 }

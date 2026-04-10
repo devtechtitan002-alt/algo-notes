@@ -11,7 +11,7 @@ public class DiameterofBinaryTree {
         if(root==null) return 0;
         int leftLen = maxDepth(root.left,max);
         int rightLen = maxDepth(root.right,max);
-        max[0] = Math.max(globalMaxLength,leftLen+rightLen); // assign to globalMaxLength
+        max[0] = Math.max(max[0],leftLen+rightLen); // assign to globalMaxLength
         return 1+Math.max(leftLen,rightLen);
     }
     public int diameterOfBinaryTree(TreeNode root) {
