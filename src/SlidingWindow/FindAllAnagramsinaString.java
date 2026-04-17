@@ -30,6 +30,66 @@ public class FindAllAnagramsinaString {
         }
         return list;
     }
+
+    /*
+    import java.util.*;
+
+public class FindAllAnagramsinaString {
+    static class Solution {
+        public List<Integer> findAnagrams(String s, String p) {
+            List<Integer> result = new ArrayList<>();
+            
+            if (s.length() < p.length()) return result;
+
+            int[] freq = new int[26];
+
+            // Build frequency of p
+            for (char c : p.toCharArray()) {
+                freq[c - 'a']++;
+            }
+
+            int left = 0, right = 0, count = p.length();
+
+            while (right < s.length()) {
+                char ch = s.charAt(right);
+
+                // If char is needed, reduce count
+                if (freq[ch - 'a'] > 0) {
+                    count--;
+                }
+                freq[ch - 'a']--;
+
+                right++;
+
+                // When window size == p.length()
+                if (right - left == p.length()) {
+
+                    if (count == 0) {
+                        result.add(left);
+                    }
+
+                    char leftChar = s.charAt(left);
+
+                    // Restore frequency
+                    if (freq[leftChar - 'a'] >= 0) {
+                        count++;
+                    }
+                    freq[leftChar - 'a']++;
+
+                    left++;
+                }
+            }
+
+            return result;
+        }
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        System.out.println(sol.findAnagrams("cbaebabacd","abc")); // [0,6]
+    }
+}
+     */
     }
     public static void main(String[] args){
         Solution sol = new Solution();

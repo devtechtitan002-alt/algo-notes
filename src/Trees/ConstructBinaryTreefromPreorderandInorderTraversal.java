@@ -41,6 +41,80 @@ public class ConstructBinaryTreefromPreorderandInorderTraversal {
         }
         return buildTreeBST(preorder,inorder,0,inorder.length-1);
     }
+     /*
+     import java.util.HashMap;
+import java.util.Map;
+
+public class ConstructBinaryTreeFromPreorderInorder {
+
+    static class Solution {
+
+        int preIndex = 0;
+        Map<Integer, Integer> inorderMap = new HashMap<>();
+
+        public TreeNode buildTree(int[] preorder, int[] inorder) {
+            // Build hashmap: value -> index
+            for (int i = 0; i < inorder.length; i++) {
+                inorderMap.put(inorder[i], i);
+            }
+
+            return build(preorder, 0, inorder.length - 1);
+        }
+
+        private TreeNode build(int[] preorder, int left, int right) {
+            // Base case
+            if (left > right) return null;
+
+            // Pick root from preorder
+            int rootVal = preorder[preIndex++];
+            TreeNode root = new TreeNode(rootVal);
+
+            // Find root in inorder
+            int mid = inorderMap.get(rootVal);
+
+            // Build left subtree first (IMPORTANT)
+            root.left = build(preorder, left, mid - 1);
+
+            // Build right subtree
+            root.right = build(preorder, mid + 1, right);
+
+            return root;
+        }
+    }
+
+    // TreeNode definition
+    static class TreeNode {
+        int val;
+        TreeNode left, right;
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+    }
+
+    // Test
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        int[] preorder = {8, 4, 2, 6, 12, 10, 14};
+        int[] inorder  = {2, 4, 6, 8, 10, 12, 14};
+
+        TreeNode root = sol.buildTree(preorder, inorder);
+
+        // Simple inorder print to verify
+        printInorder(root);   // should match inorder input
+    }
+
+    // Utility: print inorder
+    public static void printInorder(TreeNode root) {
+        if (root == null) return;
+        printInorder(root.left);
+        System.out.print(root.val + " ");
+        printInorder(root.right);
+    }
+} */
+
+
     }
     public static class TreeNode {
       int val;

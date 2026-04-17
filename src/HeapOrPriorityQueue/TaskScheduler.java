@@ -30,6 +30,49 @@ public class TaskScheduler {
     
     // Final answer
     return Math.max(tasks.length, minTime);
+
+    /*
+    import java.util.*;
+
+class Solution {
+    public int leastInterval(char[] tasks, int n) {
+        int[] freq = new int[26];
+        for(char t : tasks) freq[t - 'A']++;
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b) -> b - a);
+
+        for(int f : freq){
+            if(f > 0) maxHeap.offer(f);
+        }
+
+        int time = 0;
+
+        while(!maxHeap.isEmpty()){
+            List<Integer> temp = new ArrayList<>();
+            int cycle = n + 1;
+
+            while(cycle > 0 && !maxHeap.isEmpty()){
+                int curr = maxHeap.poll();
+                if(curr - 1 > 0){
+                    temp.add(curr - 1);
+                }
+                time++;
+                cycle--;
+            }
+
+            for(int t : temp){
+                maxHeap.offer(t);
+            }
+
+            if(maxHeap.isEmpty()) break;
+
+            time += cycle; // idle time
+        }
+
+        return time;
+    }
+}
+     */
 }
     }
     public static void main(String[] args){

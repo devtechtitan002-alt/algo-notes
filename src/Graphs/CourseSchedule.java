@@ -97,8 +97,7 @@ class Solution {
 
         // build graph
         for (int[] pre : prerequisites) {
-            map.computeIfAbsent(pre[0], k -> new ArrayList<>())
-               .add(pre[1]);
+            map.computeIfAbsent(pre[0], k -> new ArrayList<>()).add(pre[1]);
         }
 
         Set<Integer> completed = new HashSet<>();

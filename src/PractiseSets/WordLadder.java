@@ -22,7 +22,7 @@ public class WordLadder {
         public int ladderLength(String beginWord, String endWord, List<String> wordList){
 
             boolean hasEndWord = false;
-            int level = 0;
+            int level = 1;
             Map<String,List<String>> map = new HashMap<>();
 
             buildPatternMap(beginWord,map);
@@ -47,22 +47,91 @@ public class WordLadder {
                      
                     String s = q.poll();
 
-                    if(s.equals(endWord)) return level+1;
+                    if(s.equals(endWord)) return level;
 
                     for(int j=0;j<s.length();j++){
 
-                        String pattern = s.substring(0,i) + "*" + s.substring(i+1);
+                        String pattern = s.substring(0,j) + "*" + s.substring(j+1);
 
-                        for(String nei : map.get(pattern)){
-                             if(!visited.contains(nei)) q.offer(nei);
+                        for(String nei : map.getOrDefault(pattern, new ArrayList<>())){
+                             if(!visited.contains(nei)) {
+                                q.offer(nei);
+                                visited.add(nei);
+                             }
                         }
+
+                        if(map.containsKey(pattern)) map.get(pattern).clear();
                     }
 
                 }
 
                 level++;
             }
-            return level;
+            return 0;
+        }
+
+        // bidirectional bfs approach
+
+        public int ladderLengthByBidirectionalBFS(String beginWord, String endWord, List<String> wordList){
+
+            if(!wordList.contains(endWord)) return 0;
+
+            int level = 1;
+            Map<String,List<String>> map = new HashMap<>();
+
+            buildPatternMap(beginWord,map);
+            for(String s : wordList){
+                buildPatternMap(s,map);
+            }
+
+            Set<String> beginSet = new HashSet<>();
+            beginSet.add(beginWord);
+
+            Set<String> endSet = new HashSet<>();
+            endSet.add(endWord);
+
+            Set<String> visited = new HashSet<>();
+            visited.add(beginWord);
+
+
+            while(!beginSet.isEmpty() && !endSet.isEmpty()){
+
+                //expand small 
+                if(beginSet.size() > endSet.size()){
+                    Set<String> temp = beginSet;
+                    beginSet = endSet;
+                    endSet = temp;
+                }
+
+                Set<String> next = new HashSet<>();
+
+                for(String s : beginSet){
+                     
+
+                    for(int j=0;j<s.length();j++){
+
+                        String pattern = s.substring(0,j) + "*" + s.substring(j+1);
+
+                        for(String nei : map.getOrDefault(pattern, new ArrayList<>())){
+                             if(endSet.contains(nei)) {
+                                return level+1;
+                             }else if(!visited.contains(nei)){
+                                next.add(nei);
+                                visited.add(nei);
+                             }
+                        }
+
+                        if(map.containsKey(pattern)) map.get(pattern).clear();
+                        
+                    }
+
+                }
+
+                beginSet = next;
+
+                level++;
+            }
+            return 0;
         }
     }
 

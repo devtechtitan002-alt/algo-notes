@@ -24,6 +24,50 @@ public class CombinationSum {
         combinationsSum(candidates,target,0,curr,res);
        return res;    
     }
+
+    /*
+    public void backtrack(int[] nums, int target, int start,
+                      List<Integer> curr, List<List<Integer>> res){
+
+    if(target == 0){
+        res.add(new ArrayList<>(curr));
+        return;
+    }
+
+    if(target < 0) return;
+
+    for(int i = start; i < nums.length; i++){
+
+        curr.add(nums[i]);
+
+        // reuse allowed → i (not i+1)
+        backtrack(nums, target - nums[i], i, curr, res);
+
+        curr.remove(curr.size()-1); // undo
+    }
+}
+     */
+
+     /*
+     public void dfs(int[] nums, int i, int target,
+                List<Integer> curr, List<List<Integer>> res){
+
+    if(target == 0){
+        res.add(new ArrayList<>(curr));
+        return;
+    }
+
+    if(i >= nums.length || target < 0) return;
+
+    // include
+    curr.add(nums[i]);
+    dfs(nums, i, target - nums[i], curr, res);
+
+    // exclude
+    curr.remove(curr.size()-1);
+    dfs(nums, i+1, target, curr, res);
+}
+     */
     }
 
     public static void main(String[] args){
