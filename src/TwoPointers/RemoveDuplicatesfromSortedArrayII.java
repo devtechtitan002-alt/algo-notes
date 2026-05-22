@@ -1,17 +1,20 @@
+import java.util.Arrays;
+
 public class RemoveDuplicatesfromSortedArrayII {
     static class Solution {
     public int removeDuplicates(int[] nums) {
         int left=0;
         for(int right=0;right<nums.length;right++){
             if(nums[left]!=nums[right]){
-                if((right-left)>2){
-                   while((right-left)>2){
+                if((right-left)>=2){
+                   while((right-left)>=2){
                    left++;
                    }
                    nums[left]=nums[right];
                 }
             }
         }
+        System.out.println(Arrays.toString(nums));
         return left+1;
         /*
         int write = 0;
