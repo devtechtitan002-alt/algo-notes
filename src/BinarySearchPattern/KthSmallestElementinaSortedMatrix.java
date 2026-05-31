@@ -26,7 +26,7 @@ public class KthSmallestElementinaSortedMatrix {
         Arrays.sort(result);
         return result[k-1];
         */
-         int n = matrix.length;
+    int n = matrix.length;
     int lo = matrix[0][0];
     int hi = matrix[n-1][n-1];
     while(lo < hi){
