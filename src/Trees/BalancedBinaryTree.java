@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Arrays;
+
 public class BalancedBinaryTree {
     static class Solution {
     public int[] isBalance(TreeNode root) {

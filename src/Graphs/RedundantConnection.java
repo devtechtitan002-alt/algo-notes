@@ -28,7 +28,7 @@ public class RedundantConnection {
         parent = new int[edges.length+1];
         rank = new int[edges.length+1];
 
-        for(int i=0;i<edges.length;i++){
+        for(int i=0;i<edges.length+1;i++){
             parent[i]=i;
         }
 

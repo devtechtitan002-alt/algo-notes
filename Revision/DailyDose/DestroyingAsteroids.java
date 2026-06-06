@@ -17,5 +17,7 @@ public class DestroyingAsteroids {
 
         return true;
     }
+
+    // system design simulation practice free wbesites
 }
 }
